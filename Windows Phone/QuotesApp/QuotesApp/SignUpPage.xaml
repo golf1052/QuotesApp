@@ -17,20 +17,20 @@
 
         <Border BorderBrush="#FFE0E0E0" BorderThickness="20">
             <StackPanel VerticalAlignment="Center">
-                <TextBlock TextWrapping="Wrap" Text="Sign Up" HorizontalAlignment="Center" FontSize="48" Padding="0"/>
-                <TextBlock TextWrapping="Wrap" Text="Email" Margin="{StaticResource TextBoxHeaderThickness}"/>
+                <TextBlock TextWrapping="Wrap" Text="Sign Up" HorizontalAlignment="Center" FontSize="48" Padding="0" FontFamily="{StaticResource AppFont}"/>
+                <TextBlock TextWrapping="Wrap" Text="Email" Margin="{StaticResource TextBoxHeaderThickness}" FontFamily="{StaticResource AppFont}"/>
                 <TextBox x:Name="emailTextBox" Height="72" TextWrapping="Wrap" InputScope="EmailUserName" TextChanged="emailTextBox_TextChanged"/>
-                <TextBlock TextWrapping="Wrap" Text="Username" Margin="{StaticResource TextBoxHeaderThickness}"/>
+                <TextBlock TextWrapping="Wrap" Text="Username" Margin="{StaticResource TextBoxHeaderThickness}" FontFamily="{StaticResource AppFont}"/>
                 <TextBox x:Name="usernameTextBox" Height="72" TextWrapping="Wrap" InputScope="Default" TextChanged="usernameTextBox_TextChanged"/>
-                <TextBlock TextWrapping="Wrap" Text="First Name (optional)" Margin="{StaticResource TextBoxHeaderThickness}"/>
+                <TextBlock TextWrapping="Wrap" Text="First Name (optional)" Margin="{StaticResource TextBoxHeaderThickness}" FontFamily="{StaticResource AppFont}"/>
                 <TextBox x:Name="firstNameTextBox" Height="72" TextWrapping="Wrap" TextChanged="firstNameTextBox_TextChanged" InputScope="PersonalGivenName"/>
-                <TextBlock TextWrapping="Wrap" Text="Last Name (optional)" Margin="{StaticResource TextBoxHeaderThickness}"/>
+                <TextBlock TextWrapping="Wrap" Text="Last Name (optional)" Margin="{StaticResource TextBoxHeaderThickness}" FontFamily="{StaticResource AppFont}"/>
                 <TextBox x:Name="lastNameTextBox" Height="72" TextWrapping="Wrap" IsEnabled="False" InputScope="PersonalSurname"/>
-                <TextBlock TextWrapping="Wrap" Text="Password" Margin="{StaticResource TextBoxHeaderThickness}"/>
+                <TextBlock TextWrapping="Wrap" Text="Password" Margin="{StaticResource TextBoxHeaderThickness}" FontFamily="{StaticResource AppFont}"/>
                 <PasswordBox x:Name="passwordTextBox" PasswordChanged="passwordTextBox_PasswordChanged"/>
-                <TextBlock TextWrapping="Wrap" Text="Reenter your password" Margin="{StaticResource TextBoxHeaderThickness}"/>
+                <TextBlock TextWrapping="Wrap" Text="Reenter your password" Margin="{StaticResource TextBoxHeaderThickness}" FontFamily="{StaticResource AppFont}"/>
                 <PasswordBox x:Name="doublePasswordTextBox" PasswordChanged="doublePasswordTextBox_PasswordChanged"/>
-                <TextBlock x:Name="createButton" TextWrapping="Wrap" Text="OK" HorizontalAlignment="Center" FontSize="32" Padding="0,20,0,0" Tap="createButton_Tap"/>
+                <TextBlock x:Name="createButton" TextWrapping="Wrap" Text="OK" HorizontalAlignment="Center" FontSize="32" Padding="0,20,0,0" Tap="createButton_Tap" FontFamily="{StaticResource AppFont}"/>
             </StackPanel>
         </Border>
         <ProgressBar x:Name="progressBar" Height="10" VerticalAlignment="Top" IsIndeterminate="True" Margin="20,20,0,0" Visibility="Collapsed"/>

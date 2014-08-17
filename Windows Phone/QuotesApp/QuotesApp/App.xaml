@@ -9,6 +9,7 @@
     <Application.Resources>
         <local:LocalizedStrings xmlns:local="clr-namespace:QuotesApp" x:Key="LocalizedStrings"/>
         <Thickness x:Key="TextBoxHeaderThickness">15,0,0,0</Thickness>
+        <FontFamily x:Key="AppFont">/QuotesApp;component/Fonts/Fonts.zip#Note this</FontFamily>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

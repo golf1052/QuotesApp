@@ -16,17 +16,17 @@
     <Grid x:Name="LayoutRoot" Background="Transparent">
     	<Border BorderBrush="#FFE0E0E0" BorderThickness="20" Grid.RowSpan="2">
     		<StackPanel VerticalAlignment="Center">
-    			<TextBlock TextWrapping="Wrap" Text="Quotes App" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,60" FontSize="48"/>
-    			<TextBlock TextWrapping="Wrap" Text="Username" HorizontalAlignment="Left" Margin="{StaticResource TextBoxHeaderThickness}"/>
+    			<TextBlock TextWrapping="Wrap" Text="Quotes App" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,60" FontSize="48" FontFamily="{StaticResource AppFont}"/>
+    			<TextBlock TextWrapping="Wrap" Text="Username" HorizontalAlignment="Left" Margin="{StaticResource TextBoxHeaderThickness}" FontFamily="{StaticResource AppFont}"/>
     			<TextBox x:Name="usernameTextBox" Height="72" TextWrapping="Wrap" Margin="0,0,0,10" InputScope="EmailUserName"/>
-    			<TextBlock TextWrapping="Wrap" Text="Password" Margin="{StaticResource TextBoxHeaderThickness}"/>
+    			<TextBlock TextWrapping="Wrap" Text="Password" Margin="{StaticResource TextBoxHeaderThickness}" FontFamily="{StaticResource AppFont}"/>
     			<PasswordBox x:Name="passwordTextBox"/>
-    			<TextBlock x:Name="loginButton" TextWrapping="Wrap" Text="Login" HorizontalAlignment="Center" Margin="0,20,0,0" FontSize="26.667" Tap="loginButton_Tap"/>
+    			<TextBlock x:Name="loginButton" TextWrapping="Wrap" Text="Login" HorizontalAlignment="Center" Margin="0,20,0,0" FontSize="26.667" Tap="loginButton_Tap" FontFamily="{StaticResource AppFont}"/>
     		</StackPanel>
     	</Border>
         <StackPanel Grid.RowSpan="2" VerticalAlignment="Bottom" Margin="0,0,0,50">
-            <TextBlock x:Name="signUpButton" TextWrapping="Wrap" Text="Sign Up" HorizontalAlignment="Center" Margin="0,0,0,30" Tap="signUpButton_Tap"/>
-            <TextBlock x:Name="resetPasswordButton" TextWrapping="Wrap" Text="Forgot Your Password" HorizontalAlignment="Center" Margin="0"/>
+            <TextBlock x:Name="signUpButton" TextWrapping="Wrap" Text="Sign Up" HorizontalAlignment="Center" Margin="0,0,0,30" Tap="signUpButton_Tap" FontFamily="{StaticResource AppFont}"/>
+            <TextBlock x:Name="resetPasswordButton" TextWrapping="Wrap" Text="Forgot Your Password" HorizontalAlignment="Center" Margin="0" FontFamily="{StaticResource AppFont}"/>
         </StackPanel>
         <ProgressBar x:Name="progressBar" Height="10" VerticalAlignment="Top" IsIndeterminate="True" Margin="20,20,20,0" Visibility="Collapsed"/>
     </Grid>
