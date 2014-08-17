@@ -1,0 +1,39 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="QuotesApp.SignUpPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+
+        <Border BorderBrush="#FFE0E0E0" BorderThickness="20">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock TextWrapping="Wrap" Text="Sign Up" HorizontalAlignment="Center" FontSize="48" Padding="0"/>
+                <TextBlock TextWrapping="Wrap" Text="Email" Margin="{StaticResource TextBoxHeaderThickness}"/>
+                <TextBox x:Name="emailTextBox" Height="72" TextWrapping="Wrap" InputScope="EmailUserName" TextChanged="emailTextBox_TextChanged"/>
+                <TextBlock TextWrapping="Wrap" Text="Username" Margin="{StaticResource TextBoxHeaderThickness}"/>
+                <TextBox x:Name="usernameTextBox" Height="72" TextWrapping="Wrap" InputScope="Default" TextChanged="usernameTextBox_TextChanged"/>
+                <TextBlock TextWrapping="Wrap" Text="First Name (optional)" Margin="{StaticResource TextBoxHeaderThickness}"/>
+                <TextBox x:Name="firstNameTextBox" Height="72" TextWrapping="Wrap" TextChanged="firstNameTextBox_TextChanged" InputScope="PersonalGivenName"/>
+                <TextBlock TextWrapping="Wrap" Text="Last Name (optional)" Margin="{StaticResource TextBoxHeaderThickness}"/>
+                <TextBox x:Name="lastNameTextBox" Height="72" TextWrapping="Wrap" IsEnabled="False" InputScope="PersonalSurname"/>
+                <TextBlock TextWrapping="Wrap" Text="Password" Margin="{StaticResource TextBoxHeaderThickness}"/>
+                <PasswordBox x:Name="passwordTextBox" PasswordChanged="passwordTextBox_PasswordChanged"/>
+                <TextBlock TextWrapping="Wrap" Text="Reenter your password" Margin="{StaticResource TextBoxHeaderThickness}"/>
+                <PasswordBox x:Name="doublePasswordTextBox" PasswordChanged="doublePasswordTextBox_PasswordChanged"/>
+                <TextBlock x:Name="createButton" TextWrapping="Wrap" Text="OK" HorizontalAlignment="Center" FontSize="32" Padding="0,20,0,0" Tap="createButton_Tap"/>
+            </StackPanel>
+        </Border>
+        <ProgressBar x:Name="progressBar" Height="10" VerticalAlignment="Top" IsIndeterminate="True" Margin="20,20,0,0" Visibility="Collapsed"/>
+    </Grid>
+
+</phone:PhoneApplicationPage>

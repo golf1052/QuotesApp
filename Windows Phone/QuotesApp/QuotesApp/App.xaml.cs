@@ -7,6 +7,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using QuotesApp.Resources;
+using Parse;
 
 namespace QuotesApp
 {
@@ -34,6 +35,8 @@ namespace QuotesApp
 
             // Language display initialization
             InitializeLanguage();
+
+            ParseClient.Initialize(ApiKey.clientID, ApiKey.dotNetKey);
 
             // Show graphics profiling information while debugging.
             if (Debugger.IsAttached)

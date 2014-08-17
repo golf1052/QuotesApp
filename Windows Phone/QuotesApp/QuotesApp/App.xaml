@@ -8,6 +8,7 @@
     <!--Application Resources-->
     <Application.Resources>
         <local:LocalizedStrings xmlns:local="clr-namespace:QuotesApp" x:Key="LocalizedStrings"/>
+        <Thickness x:Key="TextBoxHeaderThickness">15,0,0,0</Thickness>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>
