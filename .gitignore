@@ -155,3 +155,6 @@ $RECYCLE.BIN/
 # Mac desktop service store files
 .DS_Store
 Windows Phone/QuotesApp/QuotesApp/ApiKey.cs
+*.xml
+Android/QuotesApp/.idea/misc.xml
+Android/QuotesApp/app/app.iml
