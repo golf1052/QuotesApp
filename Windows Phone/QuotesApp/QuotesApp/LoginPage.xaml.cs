@@ -27,7 +27,7 @@ namespace QuotesApp
 
         private async void loginButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            if (usernameTextBox.Text != "" && passwordTextBox.Password != "")
+            if (emailTextBox.Text != "" && passwordTextBox.Password != "")
             {
                 loginButton.IsHitTestVisible = false;
                 loginButton.Text = "";
@@ -35,14 +35,20 @@ namespace QuotesApp
                 try
                 {
                     ParseUser user;
-                    user = await ParseUser.LogInAsync(usernameTextBox.Text, passwordTextBox.Password);
-                    if ((bool)user["emailVerified"] == true)
+                    user = await ParseUser.LogInAsync(emailTextBox.Text, passwordTextBox.Password);
+                    if ((bool)user["emailVerified"] == true || (bool)user["verificationWindow"] == true)
                     {
+                        if ((bool)user["verificationWindow"] == true && (bool)user["emailVerified"] == false)
+                        {
+                            MessageBox.Show("Note you have to verify your email within 24 hours of signing up or you will not be able to login.");
+                        }
                         NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
                     }
                     else
                     {
                         MessageBox.Show("We need to make sure you actually exist. Please verify your email!");
+                        loginButton.IsHitTestVisible = true;
+                        loginButton.Text = "Login";
                     }
                     progressBar.Visibility = System.Windows.Visibility.Collapsed;
                 }

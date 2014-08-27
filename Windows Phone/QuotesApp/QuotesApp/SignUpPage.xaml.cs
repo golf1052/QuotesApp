@@ -21,21 +21,28 @@ namespace QuotesApp
 
         private async void createButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
+            if (displayNameTextBox.Text == "" || displayNameTextBox.Text == " ")
+            {
+                MessageBox.Show("You have to have a display name. Sorry it's one of the few rules we have here.");
+                return;
+            }
+
             if (passwordTextBox.Password == doublePasswordTextBox.Password)
             {
                 if (passwordTextBox.Password.Length < 6)
                 {
                     MessageBox.Show("Hold up, wait a minute, your password is way too short (must be 6 characters or greater)");
+                    return;
                 }
                 createButton.IsHitTestVisible = false;
                 createButton.Text = "";
                 progressBar.Visibility = System.Windows.Visibility.Visible;
                 ParseUser newUser = new ParseUser();
                 newUser.Email = emailTextBox.Text;
-                newUser.Username = usernameTextBox.Text;
-                newUser["firstname"] = firstNameTextBox.Text;
-                newUser["lastname"] = lastNameTextBox.Text;
+                newUser.Username = emailTextBox.Text;
+                newUser["displayName"] = displayNameTextBox.Text;
                 newUser.Password = passwordTextBox.Password;
+                newUser["verificationWindow"] = true;
 
                 try
                 {
@@ -58,38 +65,15 @@ namespace QuotesApp
                     {
                         MessageBox.Show("That's not even an email address!");
                     }
-                    else if (ex.Message == "username " + usernameTextBox.Text + " already taken")
-                    {
-                        Random random = new Random();
-                        int randomNumber = random.Next(0, 2);
-                        if (randomNumber == 0)
-                        {
-                            MessageBox.Show("Too bad so sad that username is taken ;_;");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Too bad so sad that username is taken\n¯\\_(ツ)_/¯");
-                        }
-                    }
                     else
                     {
                         MessageBox.Show(ex.Message);
                     }
                 }
             }
-        }
-
-        private void firstNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            createButton.Text = "collecting names";
-
-            if (firstNameTextBox.Text != "")
-            {
-                lastNameTextBox.IsEnabled = true;
-            }
             else
             {
-                lastNameTextBox.IsEnabled = false;
+                MessageBox.Show("Your passwords don't match. Fix it.");
             }
         }
 
@@ -98,9 +82,9 @@ namespace QuotesApp
             createButton.Text = "that's your email?";
         }
 
-        private void usernameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void displayNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            createButton.Text = "best username ever";
+            createButton.Text = "best name ever";
         }
 
         private void passwordTextBox_PasswordChanged(object sender, RoutedEventArgs e)

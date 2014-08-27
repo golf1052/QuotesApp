@@ -20,12 +20,8 @@
                 <TextBlock TextWrapping="Wrap" Text="Sign Up" HorizontalAlignment="Center" FontSize="48" Padding="0" FontFamily="{StaticResource AppFont}"/>
                 <TextBlock TextWrapping="Wrap" Text="Email" Margin="{StaticResource TextBoxHeaderThickness}" FontFamily="{StaticResource AppFont}"/>
                 <TextBox x:Name="emailTextBox" Height="72" TextWrapping="Wrap" InputScope="EmailUserName" TextChanged="emailTextBox_TextChanged"/>
-                <TextBlock TextWrapping="Wrap" Text="Username" Margin="{StaticResource TextBoxHeaderThickness}" FontFamily="{StaticResource AppFont}"/>
-                <TextBox x:Name="usernameTextBox" Height="72" TextWrapping="Wrap" InputScope="Default" TextChanged="usernameTextBox_TextChanged"/>
-                <TextBlock TextWrapping="Wrap" Text="First Name (optional)" Margin="{StaticResource TextBoxHeaderThickness}" FontFamily="{StaticResource AppFont}"/>
-                <TextBox x:Name="firstNameTextBox" Height="72" TextWrapping="Wrap" TextChanged="firstNameTextBox_TextChanged" InputScope="PersonalGivenName"/>
-                <TextBlock TextWrapping="Wrap" Text="Last Name (optional)" Margin="{StaticResource TextBoxHeaderThickness}" FontFamily="{StaticResource AppFont}"/>
-                <TextBox x:Name="lastNameTextBox" Height="72" TextWrapping="Wrap" IsEnabled="False" InputScope="PersonalSurname"/>
+                <TextBlock TextWrapping="Wrap" Text="Display Name" Margin="{StaticResource TextBoxHeaderThickness}" FontFamily="{StaticResource AppFont}"/>
+                <TextBox x:Name="displayNameTextBox" Height="72" TextWrapping="Wrap" InputScope="Default" TextChanged="displayNameTextBox_TextChanged"/>
                 <TextBlock TextWrapping="Wrap" Text="Password" Margin="{StaticResource TextBoxHeaderThickness}" FontFamily="{StaticResource AppFont}"/>
                 <PasswordBox x:Name="passwordTextBox" PasswordChanged="passwordTextBox_PasswordChanged"/>
                 <TextBlock TextWrapping="Wrap" Text="Reenter your password" Margin="{StaticResource TextBoxHeaderThickness}" FontFamily="{StaticResource AppFont}"/>
