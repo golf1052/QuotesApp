@@ -1,8 +1,21 @@
 <resources>
-
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-    </style>
+    <style name="AppTheme" parent="android:Theme.Material.Light">
+        <!--
+        Colors:
+            Primary - Amber 500
+            Primary Dark - Amber 700
+            Primary Light - Amber 100
+            Accent - Blue A200
+            Accent Fallback Light - Blue A100
+            Accent Fallback Dark - Blue A400
+        -->
 
+        <item name="android:colorPrimary">@color/amber_500</item>
+        <item name="android:colorPrimaryDark">@color/amber_700</item>
+        <item name="android:colorButtonNormal">@color/blue_a200</item>
+        <item name="android:colorAccent">@color/blue_a200</item>
+
+        <!--<item name="android:statusBarColor">@color/deep_orange_a400</item>-->
+    </style>
 </resources>

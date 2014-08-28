@@ -1,18 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme" parent="android:Theme.Material.Light">
+    <!--<style name="AppTheme" parent="android:Theme.Material.Light">-->
         <!--
         Colors:
             Primary - Amber 500
             Primary Dark - Amber 700
             Primary Light - Amber 100
-            Accent - Light Blue A200
-            Accent Fallback Light - Light Blue A100
-            Accent Fallback Dark - Light Blue A400
+            Accent - Blue A200
+            Accent Fallback Light - Blue A100
+            Accent Fallback Dark - Blue A400
         -->
+        <!--<item name="android:colorPrimary">@color/amber_500</item>-->
+        <!--<item name="android:colorPrimaryDark">@color/amber_700</item>-->
+        <!--<item name="android:statusBarColor">@color/deep_orange_a400</item>-->
+        <!--<item name="android:colorAccent">@color/blue_a200</item>-->
+    <!--</style>-->
+    <style name="MatTheme" parent="@style/AppTheme">
+        <!--
+        Colors:
+            Primary - Amber 500
+            Primary Dark - Amber 700
+            Primary Light - Amber 100
+            Accent - Blue A200
+            Accent Fallback Light - Blue A100
+            Accent Fallback Dark - Blue A400
+        -->
+
         <item name="android:colorPrimary">@color/amber_500</item>
         <item name="android:colorPrimaryDark">@color/amber_700</item>
+        <item name="android:colorButtonNormal">@color/blue_a200</item>
+        <item name="android:colorAccent">@color/blue_a200</item>
+        <!--<item name="android:buttonStyle">@style/AppTheme</item>-->
+
         <!--<item name="android:statusBarColor">@color/deep_orange_a400</item>-->
-        <item name="android:colorAccent">@color/light_blue_a200</item>
     </style>
+
 </resources>

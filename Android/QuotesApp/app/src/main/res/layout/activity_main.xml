@@ -3,8 +3,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:paddingLeft="50dp"
-    android:paddingRight="50dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     android:paddingTop="120dp">
 
     <TextView
@@ -56,5 +56,11 @@
             android:id="@+id/button2"
             android:layout_weight="1" />
     </LinearLayout>
+
+    <DigitalClock
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/digitalClock"
+        android:layout_gravity="right" />
 
 </LinearLayout>

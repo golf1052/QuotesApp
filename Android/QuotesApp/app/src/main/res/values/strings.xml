@@ -7,5 +7,7 @@
     <string name="button_login">Login</string>
     <string name="hint_email">foo@bar.com</string>
     <string name="hint_password">password</string>
+    <string name="title_activity_signup">SignupActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
