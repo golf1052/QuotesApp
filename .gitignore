@@ -156,5 +156,8 @@ $RECYCLE.BIN/
 .DS_Store
 Windows Phone/QuotesApp/QuotesApp/ApiKey.cs
 *.xml
+
+# Android Stuff
 Android/QuotesApp/.idea/misc.xml
 Android/QuotesApp/app/app.iml
+Android/QuotesApp/app/src/main/java/com/golf1052/quotesapp/ApiKey.java

@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.parse.Parse;
+import com.parse.ParseAnalytics;
+import com.parse.ParseObject;
+import com.golf1052.quotesapp.ApiKey;
 
 
 public class MainActivity extends Activity {
@@ -12,6 +16,13 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // initialize Parse
+        Parse.initialize(this, ApiKey.app_id, ApiKey.api_key);
+        // test Parse
+        ParseObject testObject = new ParseObject("TestObject");
+        testObject.put("foo", "baz");
+        testObject.saveInBackground();
     }
 
 
