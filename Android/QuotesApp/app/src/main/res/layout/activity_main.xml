@@ -46,14 +46,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_sign_up"
-            android:id="@+id/button"
+            android:id="@+id/signup"
             android:layout_weight="1" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_login"
-            android:id="@+id/button2"
+            android:id="@+id/login"
             android:layout_weight="1" />
     </LinearLayout>
 

@@ -1,15 +1,14 @@
 package com.golf1052.quotesapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 
 import com.parse.Parse;
-import com.parse.ParseAnalytics;
 import com.parse.ParseObject;
-import com.golf1052.quotesapp.ApiKey;
 
 
 public class MainActivity extends Activity {
@@ -20,6 +19,23 @@ public class MainActivity extends Activity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
 
+           //login and signup buttons and listeners that launch the designated Activities when they are clicked
+           final Button login = (Button) findViewById(R.id.login);
+           final Button signup = (Button) findViewById(R.id.signup);
+           login.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
+                    MainActivity.this.startActivity(loginIntent);
+                }
+            });
+           signup.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent signupIntent = new Intent(MainActivity.this, SignupActivity.class);
+                    MainActivity.this.startActivity(signupIntent);
+                }
+            });
         // initialize Parse
         Parse.initialize(this, ApiKey.app_id, ApiKey.api_key);
         // test Parse
