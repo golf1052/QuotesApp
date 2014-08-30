@@ -23,6 +23,18 @@ namespace QuotesApp
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             SystemTray.IsVisible = false;
+
+            //if (ParseUser.CurrentUser != null)
+            //{
+            //    if ((bool)ParseUser.CurrentUser["emailVerified"] == false)
+            //    {
+            //        // User must verify email
+            //    }
+            //    else
+            //    {
+            //        NavigationService.Navigate(new Uri("/RoomsListPage.xaml", UriKind.Relative));
+            //    }
+            //}
         }
 
         private async void loginButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
@@ -36,13 +48,14 @@ namespace QuotesApp
                 {
                     ParseUser user;
                     user = await ParseUser.LogInAsync(emailTextBox.Text, passwordTextBox.Password);
+                    AppConstants.user = user;
                     if ((bool)user["emailVerified"] == true || (bool)user["verificationWindow"] == true)
                     {
                         if ((bool)user["verificationWindow"] == true && (bool)user["emailVerified"] == false)
                         {
                             MessageBox.Show("Note you have to verify your email within 24 hours of signing up or you will not be able to login.");
                         }
-                        NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+                        NavigationService.Navigate(new Uri("/RoomsListPage.xaml", UriKind.Relative));
                     }
                     else
                     {

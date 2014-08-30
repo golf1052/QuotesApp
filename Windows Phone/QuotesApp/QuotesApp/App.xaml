@@ -10,6 +10,12 @@
         <local:LocalizedStrings xmlns:local="clr-namespace:QuotesApp" x:Key="LocalizedStrings"/>
         <Thickness x:Key="TextBoxHeaderThickness">15,0,0,0</Thickness>
         <FontFamily x:Key="AppFont">Global User Interface</FontFamily>
+        <Color x:Key="AppPrimaryColor1">#FFFFC107</Color>
+        <Color x:Key="AppPrimaryColor2">#FFFFECB3</Color>
+        <Color x:Key="AppPrimaryColor3">#FFFFA000</Color>
+        <Color x:Key="AppAccentColor1">#FF6889FF</Color>
+        <Color x:Key="AppAccentColor2">#FFA6BAFF</Color>
+        <Color x:Key="AppAccentColor3">#FF4D73FF</Color>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>
