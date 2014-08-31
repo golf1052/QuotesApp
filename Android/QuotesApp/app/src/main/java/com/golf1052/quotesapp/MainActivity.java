@@ -7,9 +7,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 
-import com.parse.Parse;
-import com.parse.ParseObject;
-
 
 public class MainActivity extends Activity {
 
@@ -36,12 +33,7 @@ public class MainActivity extends Activity {
                     MainActivity.this.startActivity(signupIntent);
                 }
             });
-        // initialize Parse
-        Parse.initialize(this, ApiKey.app_id, ApiKey.api_key);
-        // test Parse
-        ParseObject testObject = new ParseObject("TestObject");
-        testObject.put("foo", "baz");
-        testObject.saveInBackground();
+
     }
 
 
