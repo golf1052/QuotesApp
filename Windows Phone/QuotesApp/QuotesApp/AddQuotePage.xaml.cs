@@ -22,8 +22,8 @@ namespace QuotesApp
         {
             InitializeComponent();
             quotesCollection = new ObservableCollection<CreateQuoteListViewBinding>();
-            groupName = (string)AppConstants.pageParameters[0];
-            groupObject = (ParseObject)AppConstants.pageParameters[1];
+            groupObject = (ParseObject)AppConstants.pageParameters[0];
+            groupName = (string)groupObject["name"];
         }
 
         private void quotesListView_Loaded(object sender, RoutedEventArgs e)
@@ -66,7 +66,7 @@ namespace QuotesApp
                 Quote quote = new Quote(AppConstants.user, groupObject, blurbs);
                 groupObject.Get<List<object>>("quotes").Add(quote.ToParseObject());
                 await groupObject.SaveAsync();
-                NavigationService.Navigate(new Uri("/RoomPage.xaml", UriKind.Relative));
+                NavigationService.GoBack();
             }
         }
     }

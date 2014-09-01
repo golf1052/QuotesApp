@@ -49,9 +49,9 @@ namespace QuotesApp
                     ParseUser user;
                     user = await ParseUser.LogInAsync(emailTextBox.Text, passwordTextBox.Password);
                     AppConstants.user = user;
-                    if ((bool)user["emailVerified"] == true || (bool)user["verificationWindow"] == true)
+                    if ((bool)user["emailVerified"] == true || user.CreatedAt + TimeSpan.FromDays(1) > DateTime.UtcNow)
                     {
-                        if ((bool)user["verificationWindow"] == true && (bool)user["emailVerified"] == false)
+                        if (user.CreatedAt + TimeSpan.FromDays(1) > DateTime.UtcNow && (bool)user["emailVerified"] == false)
                         {
                             MessageBox.Show("Note you have to verify your email within 24 hours of signing up or you will not be able to login.");
                         }
@@ -72,9 +72,13 @@ namespace QuotesApp
                     {
                         MessageBox.Show("Something's up...\nLooks like you entered the wrong info");
                     }
+                    else
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
                     loginButton.IsHitTestVisible = true;
                     loginButton.Text = "Login";
-                    Debug.WriteLine(ex.Message);
                 }
             }
         }

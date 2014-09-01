@@ -14,6 +14,12 @@ namespace QuotesApp
             this.misattributedTo = misattributedTo;
         }
 
+        public Blurb(ParseObject blurbObject)
+        {
+            this.blurb = blurbObject.Get<string>("blurb");
+            this.misattributedTo = blurbObject.Get<string>("misattributedTo");
+        }
+
         public ParseObject ToParseObject()
         {
             ParseObject tmp = new ParseObject("Blurb");

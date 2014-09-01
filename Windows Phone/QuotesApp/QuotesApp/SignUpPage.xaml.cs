@@ -21,7 +21,7 @@ namespace QuotesApp
 
         private async void createButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            if (displayNameTextBox.Text == "" || displayNameTextBox.Text == " ")
+            if (displayNameTextBox.Text.Trim() == "")
             {
                 MessageBox.Show("You have to have a display name. Sorry it's one of the few rules we have here.");
                 return;
@@ -34,6 +34,7 @@ namespace QuotesApp
                     MessageBox.Show("Hold up, wait a minute, your password is way too short (must be 6 characters or greater)");
                     return;
                 }
+
                 createButton.IsHitTestVisible = false;
                 createButton.Text = "";
                 progressBar.Visibility = System.Windows.Visibility.Visible;
@@ -41,15 +42,14 @@ namespace QuotesApp
                 newUser.Email = emailTextBox.Text;
                 newUser.Username = emailTextBox.Text;
                 newUser["displayName"] = displayNameTextBox.Text;
+                newUser["favorites"] = new List<ParseObject>();
                 newUser.Password = passwordTextBox.Password;
-                newUser["verificationWindow"] = true;
 
                 try
                 {
                     progressBar.Visibility = System.Windows.Visibility.Collapsed;
                     await newUser.SignUpAsync();
-                    NavigationService.Navigate(new Uri("/LoginPage.xaml", UriKind.Relative));
-
+                    NavigationService.GoBack();
                 }
                 catch (Exception ex)
                 {

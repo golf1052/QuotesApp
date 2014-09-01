@@ -18,9 +18,25 @@
 				<Grid.RowDefinitions>
 					<RowDefinition Height="Auto"/>
 					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
 				</Grid.RowDefinitions>
-				<TextBox TextWrapping="Wrap" Text="{Binding Quote, Mode=TwoWay}" AcceptsReturn="True"/>
-				<TextBox TextWrapping="Wrap" Text="{Binding Misattribute, Mode=TwoWay}" Grid.Row="1" AcceptsReturn="True"/>
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Blurb" VerticalAlignment="Top" Padding="10,0,0,0"/>
+					<TextBox TextWrapping="Wrap" Text="{Binding Quote, Mode=TwoWay}" AcceptsReturn="True" Margin="0" Grid.Row="1" InputScope="Chat"/>
+				</Grid>
+				<Grid Grid.Row="1">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+					<TextBlock HorizontalAlignment="Left" Text="Misattributed To" VerticalAlignment="Top" Padding="10,0,0,0"/>
+					<TextBox TextWrapping="Wrap" Text="{Binding Misattribute, Mode=TwoWay}" AcceptsReturn="True" Margin="0" Grid.Row="1" InputScope="Chat"/>
+				</Grid>
+				<Rectangle StrokeThickness="0" Grid.Row="2" Height="2" Fill="Gray"/>
 			</Grid>
 		</DataTemplate>
 	</phone:PhoneApplicationPage.Resources>

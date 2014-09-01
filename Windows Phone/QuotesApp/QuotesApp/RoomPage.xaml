@@ -19,26 +19,30 @@
 					<RowDefinition Height="Auto"/>
 					<RowDefinition Height="Auto"/>
 					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
 				</Grid.RowDefinitions>
-				<Grid>
+				<Rectangle Height="10" StrokeThickness="0" Fill="Gray" Visibility="{Binding TopDividerVisibility}"/>
+				<Grid Grid.Row="1" Visibility="{Binding RightQuoteVisibility}">
 					<Grid.RowDefinitions>
 						<RowDefinition Height="Auto"/>
 						<RowDefinition Height="Auto"/>
 					</Grid.RowDefinitions>
-					<TextBlock TextWrapping="Wrap" Text="this is a quote" FlowDirection="LeftToRight" HorizontalAlignment="Right"/>
-					<TextBlock TextWrapping="Wrap" Text="- A Dude" Grid.Row="1" FlowDirection="LeftToRight" HorizontalAlignment="Right"/>
+					<TextBlock TextWrapping="Wrap" Text="{Binding RightQuote}" FlowDirection="LeftToRight" HorizontalAlignment="Right"/>
+					<TextBlock TextWrapping="Wrap" Text="{Binding RightQuoteMisattrib}" Grid.Row="1" FlowDirection="LeftToRight" HorizontalAlignment="Right"/>
 				</Grid>
-				<Grid Grid.Row="1">
+				<Grid Grid.Row="2" Visibility="{Binding LeftQuoteVisibility}">
 					<Grid.RowDefinitions>
 						<RowDefinition Height="Auto"/>
 						<RowDefinition Height="Auto"/>
 					</Grid.RowDefinitions>
-					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="this is another quote"/>
-					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="- Another Dude" VerticalAlignment="Top" Grid.Row="1"/>
+					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding LeftQuote}"/>
+					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding LeftQuoteMisattrib}" VerticalAlignment="Top" Grid.Row="1"/>
 				</Grid>
-				<Grid Grid.Row="2">
-					<TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="- Dude who submitted it......" VerticalAlignment="Top"/>
+				<Grid Grid.Row="3" Visibility="{Binding SubmitterVisibility}">
+					<TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding Submitter}" VerticalAlignment="Top"/>
 				</Grid>
+				<Rectangle Fill="Gray" StrokeThickness="0" Grid.Row="4" Height="10" Visibility="{Binding BottomDividerVisibility}"/>
 			</Grid>
 		</DataTemplate>
 	</phone:PhoneApplicationPage.Resources>
@@ -54,7 +58,7 @@
 
         <!--ContentPanel - place additional content here-->
         <TextBlock x:Name="roomNameTextBlock" Text="room name" Margin="9,0,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
-        <phone:LongListSelector x:Name="quotesListView" Grid.Row="1" ItemTemplate="{StaticResource QuoteListViewTemplate}"/>
+        <phone:LongListSelector x:Name="quotesListView" Grid.Row="1" ItemTemplate="{StaticResource QuoteListViewTemplate}" Loaded="quotesListView_Loaded" Margin="15,0"/>
     </Grid>
 
     <phone:PhoneApplicationPage.ApplicationBar>

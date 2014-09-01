@@ -21,12 +21,12 @@ namespace QuotesApp
         public RoomsListPage()
         {
             InitializeComponent();
-            allRoomsCollection = new ObservableCollection<RoomListViewBinding>();
-            personalRoomsCollection = new ObservableCollection<RoomListViewBinding>();
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            allRoomsCollection = new ObservableCollection<RoomListViewBinding>();
+            personalRoomsCollection = new ObservableCollection<RoomListViewBinding>();
             ParseQuery<ParseObject> personalRoomsQuery = ParseObject.GetQuery("Room").WhereEqualTo("members", AppConstants.user);
             IEnumerable<ParseObject> personalRoomsResults = await personalRoomsQuery.FindAsync();
             foreach (ParseObject result in personalRoomsResults)
@@ -93,7 +93,6 @@ namespace QuotesApp
             {
                 RoomListViewBinding selectedItem = (RoomListViewBinding)e.AddedItems[0];
                 AppConstants.pageParameters.Clear();
-                AppConstants.pageParameters.Add(selectedItem.RoomName);
                 AppConstants.pageParameters.Add(selectedItem.parseObject);
                 NavigationService.Navigate(new Uri("/RoomPage.xaml", UriKind.Relative));
             }
@@ -105,7 +104,6 @@ namespace QuotesApp
             {
                 RoomListViewBinding selectedItem = (RoomListViewBinding)e.AddedItems[0];
                 AppConstants.pageParameters.Clear();
-                AppConstants.pageParameters.Add(selectedItem.RoomName);
                 AppConstants.pageParameters.Add(selectedItem.parseObject);
                 NavigationService.Navigate(new Uri("/RoomPage.xaml", UriKind.Relative));
             }

@@ -46,11 +46,13 @@ namespace QuotesApp
                 members.Add(AppConstants.user);
                 newRoom["founders"] = founders;
                 newRoom["members"] = members;
+                newRoom["deleteVotes"] = new List<ParseUser>();
                 await newRoom.SaveAsync();
                 waiting.Deactivate();
                 AppConstants.pageParameters.Clear();
-                AppConstants.pageParameters.Add(roomNameTextBox.Text);
-                NavigationService.Navigate(new Uri("/RoomPage.xaml", UriKind.Relative));
+                AppConstants.pageParameters.Add(newRoom);
+                NavigationService.GoBack();
+                //NavigationService.Navigate(new Uri("/RoomPage.xaml", UriKind.Relative));
             }
             else
             {

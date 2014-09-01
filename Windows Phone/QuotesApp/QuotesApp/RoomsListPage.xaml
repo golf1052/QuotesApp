@@ -18,7 +18,7 @@
 				<StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0,0,0,15">
 					<Rectangle Stroke="Black" Width="10" StrokeThickness="0" Height="64">
 						<Rectangle.Fill>
-							<SolidColorBrush Color="{Binding RoomColor}"/>
+							<SolidColorBrush Color="Black"/>
 						</Rectangle.Fill>
 					</Rectangle>
 					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding RoomName}" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="48"/>
