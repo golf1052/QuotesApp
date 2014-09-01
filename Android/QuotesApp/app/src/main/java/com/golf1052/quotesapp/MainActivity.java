@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 
+import com.parse.Parse;
+import com.parse.ParseAnalytics;
+
 
 public class MainActivity extends Activity {
 
@@ -15,6 +18,11 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
+        //initialize Parse
+        Parse.initialize(this, ApiKey.app_id, ApiKey.api_key);
+        //tracks the app being opened (no intent, and this method does take a null)
+        ParseAnalytics.trackAppOpened(null);
+
 
            //login and signup buttons and listeners that launch the designated Activities when they are clicked
            final Button login = (Button) findViewById(R.id.login);
