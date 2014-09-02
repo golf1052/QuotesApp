@@ -229,7 +229,6 @@
     <Content Include="Images\transport.play.png" />
     <Content Include="Images\transport.rew.png" />
     <Content Include="Images\upload.png" />
-    <Content Include="README_FIRST.txt" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
