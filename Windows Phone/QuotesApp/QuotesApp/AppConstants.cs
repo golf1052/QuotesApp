@@ -10,7 +10,7 @@ namespace QuotesApp
 {
     public class AppConstants
     {
-        public static List<object> pageParameters = new List<object>();
+        public List<object> pageParameters = new List<object>();
 
         public static SolidColorBrush appPrimaryColor1 = new SolidColorBrush(Color.FromArgb(255, 255, 193, 7));
         public static SolidColorBrush appPrimaryColor2 = new SolidColorBrush(Color.FromArgb(255, 255, 235, 179));

@@ -49,8 +49,9 @@ namespace QuotesApp
                 newRoom["deleteVotes"] = new List<ParseUser>();
                 await newRoom.SaveAsync();
                 waiting.Deactivate();
-                AppConstants.pageParameters.Clear();
-                AppConstants.pageParameters.Add(newRoom);
+                List<object> parameters = new List<object>();
+                parameters.Add(newRoom);
+                PhoneApplicationService.Current.State["parameters"] = parameters;
                 NavigationService.GoBack();
                 //NavigationService.Navigate(new Uri("/RoomPage.xaml", UriKind.Relative));
             }

@@ -92,8 +92,9 @@ namespace QuotesApp
             if (e.AddedItems.Count > 0)
             {
                 RoomListViewBinding selectedItem = (RoomListViewBinding)e.AddedItems[0];
-                AppConstants.pageParameters.Clear();
-                AppConstants.pageParameters.Add(selectedItem.parseObject);
+                List<object> parameters = new List<object>();
+                parameters.Add(selectedItem.parseObject);
+                PhoneApplicationService.Current.State["parameters"] = parameters;
                 NavigationService.Navigate(new Uri("/RoomPage.xaml", UriKind.Relative));
             }
         }
@@ -103,8 +104,9 @@ namespace QuotesApp
             if (e.AddedItems.Count > 0)
             {
                 RoomListViewBinding selectedItem = (RoomListViewBinding)e.AddedItems[0];
-                AppConstants.pageParameters.Clear();
-                AppConstants.pageParameters.Add(selectedItem.parseObject);
+                List<object> parameters = new List<object>();
+                parameters.Add(selectedItem.parseObject);
+                PhoneApplicationService.Current.State["parameters"] = parameters;
                 NavigationService.Navigate(new Uri("/RoomPage.xaml", UriKind.Relative));
             }
         }

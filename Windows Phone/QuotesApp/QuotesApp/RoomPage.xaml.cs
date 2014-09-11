@@ -29,8 +29,9 @@ namespace QuotesApp
             quotes = new List<Quote>();
             quotesCollection = new ObservableCollection<QuoteListViewBinding>();
             quotesMapping = new Dictionary<Quote, List<QuoteListViewBinding>>();
-            thisRoom = (ParseObject)AppConstants.pageParameters[0];
-            roomNameTextBlock.Text = (string)((ParseObject)AppConstants.pageParameters[0])["name"];
+            thisRoom = (ParseObject)((List<object>)PhoneApplicationService.Current.State["parameters"])[0];
+            roomNameTextBlock.Text = "";
+            roomNameTextBlock.Text = (string)thisRoom["name"];
             ParseQuery<ParseObject> quotesQuery = ParseObject.GetQuery("Quote").WhereEqualTo("room", thisRoom);
             IEnumerable<ParseObject> quotesResults = await quotesQuery.FindAsync();
             foreach (ParseObject result in quotesResults)

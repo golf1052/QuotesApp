@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Windows;
@@ -22,7 +23,7 @@ namespace QuotesApp
         {
             InitializeComponent();
             quotesCollection = new ObservableCollection<CreateQuoteListViewBinding>();
-            groupObject = (ParseObject)AppConstants.pageParameters[0];
+            groupObject = (ParseObject)((List<object>)PhoneApplicationService.Current.State["parameters"])[0];
             groupName = (string)groupObject["name"];
         }
 
