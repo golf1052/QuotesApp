@@ -12,7 +12,7 @@
 				'X-Parse-Application-Id' : 'i0Js9aOJTnuUygn0yQLZyy4L4EWbacRmMoqu2IXC',
 				'X-Parse-REST-API-Key' : '61B0s035wFn2PhVNX9sL8pPKFro9iIzuSaohyCwL'
 			};
-			var pUrl = 'https://api.parse.com/1/'; 
+			var pUrl = 'https://api.parse.com/1/';
 
 			// get room data
 			$http.get(pUrl + 'classes/Room/RN7ATsC59V').success(function(data){ // for party
