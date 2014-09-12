@@ -23,7 +23,7 @@
         <!-- <h1>{{qs.name}}</h1> -->
       </div>
     </div>
-    
+
     <div class="row">
       <!-- Left hand side -->
       <div class="col-md-8">
@@ -39,25 +39,18 @@
       <!-- Right hand side -->
       <div class="col-md-4">
         <div id="sidebar">
-          <form role="form" name="quoteForm" ng-controller="QuoteSubmitController as qsc" ng-submit="qsc.addQuote()">
+          <form role="form" id="addQuotesForm" ng-controller="QuoteSubmitController as qsc" ng-submit="qsc.addQuote()">
             <div class="form-group">
-              <div>
-                <input ng-model="qsc.quote.blurbs[0]['blurb']" type="text" class="form-control" id="blurbInput" placeholder="Blurb">
-              </div>
+              <input ng-model="qsc.quote.blurbs[0]['blurb']" type="text" class="form-control" id="firstBlurbInput" onfocusout="addQuoteForm(this.id)" placeholder="Blurb">
             </div>
 
             <div class="form-group">
-              <div>
-                <input ng-model="qsc.quote.blurbs[0]['attributed']" type="text" class="form-control" id="misattribInput" placeholder="Misattributed To">
-              </div>
+              <input ng-model="qsc.quote.blurbs[0]['attributed']" type="text" class="form-control" id="firstMisattribInput" placeholder="Misattributed To">
             </div>
 
-            <div class="f">
-            	<button type="submit" class="btn btn-lg btn-block">Submit</button>
+            <div class="f" id="submitButtonDiv">
+              <button on type="sbmit" class="btn btn-lg btn-block">Submit</button>
             </div>
-
-          </div>
-
         </form>
       </div>
     </div>
