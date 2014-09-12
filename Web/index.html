@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="css/app.css"/>
 
 </head>
-<body>
+<body ng-controller="QuoteStreamController as qs">
   <div class="container" id="page-wrap">
     <div class="row">
       <div class="page-header">
@@ -25,7 +25,7 @@
     <div class="row">
       <!-- Left hand side -->
       <div class="col-md-8">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tortor est, maximus ut ornare in, condimentum nec ante. Sed eu justo a ex eleifend sodales eu vitae dui. Nulla tristique bibendum odio et vulputate. Etiam malesuada dignissim luctus. Sed pellentesque felis vitae leo hendrerit, quis efficitur dui mollis. Nam a orci ullamcorper, sagittis urna et, placerat tellus. Proin quis posuere turpis. Aliquam a convallis sem, posuere tincidunt purus. Ut ac consectetur diam. Phasellus rhoncus lacus sit amet fermentum fringilla. Nulla facilisi. Nullam fermentum ipsum mauris, tincidunt hendrerit neque condimentum aliquam. Sed auctor leo nunc, ac pretium velit mollis sit amet.</p>
+        <p>{{qs.room}}</p>
 
 <p>In ultrices leo a mauris pulvinar, quis consequat nisi ultricies. Maecenas ligula lectus, varius non dapibus vitae, facilisis at nunc. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum dui ex, vestibulum in felis ut, lobortis feugiat lectus. Suspendisse varius quam ut erat fermentum, in suscipit diam dapibus. Nulla ullamcorper lobortis arcu ut tincidunt. Fusce at accumsan ex. Vestibulum sed cursus mauris. Etiam euismod mollis tellus sit amet lobortis.</p>
 

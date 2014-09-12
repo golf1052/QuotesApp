@@ -1,53 +1,48 @@
 (function() {
-	var foo = "";
-
 	var app = angular.module('quotesApp', []);
 
-	Parse.initialize("i0Js9aOJTnuUygn0yQLZyy4L4EWbacRmMoqu2IXC", "96l2LO6K6wwwh6lzWkKIMA5nQeb4h0aiRis2BhwH");
+	app.controller('QuoteStreamController', ['$http', function($http) {
+			// initialize data structures for room + quote data
+			var quoteStream = this;
+			quoteStream.room = {};
+			quoteStream.quotes = []
 
-	var Room = Parse.Object.extend("Room");
-	var query = new Parse.Query(Room);
-	// get the Whale-Cum Black Party Room
-	query.get("RN7ATsC59V", {
-		success: function(room) {
-			// the object was retrieved successfully
-			console.log(room)
-			var Quote = Parse.Object.extend("Quote");
-			query = new Parse.Query(Quote);
+			// set API key headers
+			$http.defaults.headers.common = {
+				'X-Parse-Application-Id' : 'i0Js9aOJTnuUygn0yQLZyy4L4EWbacRmMoqu2IXC',
+				'X-Parse-REST-API-Key' : '61B0s035wFn2PhVNX9sL8pPKFro9iIzuSaohyCwL'
+			};
+			var pUrl = 'https://api.parse.com/1/'; 
 
-			//var quoteIds = query.get("quotes");
-			//var quoteIds = room['quotes'];
-			
-			var quoteIds = room.get("quotes");
-			console.log(quoteIds);
-			var quotes = [];
-			console.log(quoteIds[0].get('id'));
-			// query for quotes from room
-			for (var i = 0; i < quoteIds.length; i++) {
-				query.get(quoteIds[i].get('id'), {
-					success: function(quote) {
-						quotes[i] = quote;
-						console.log(quotes)
-					},
-					error: function(object, error){
-						console.log('ERROR')
+			// get room data
+			$http.get(pUrl + 'classes/Room/RN7ATsC59V').success(function(data){
+				quoteStream.room = data;
+				quoteStream.quotes = quoteStream.room['quotes'];
+				console.log(quoteStream.quotes);
+				// go through the quote IDs and get their objects
+				for (var i = 0; i < quoteStream.quotes.length; i++) {
+					!function outer(ii){ // wrapper because for loop
+						// get Quote objects from Parse
+						$http.get(pUrl + '/classes/Quote/' + quoteStream.quotes[i]['objectId']).success(function(data) {
+								quoteStream.quotes[ii] = data;
+								for (var j = 0; j < quoteStream.quotes[ii]['blurbs'].length; j++) {
+									!function outerj(jj){ // another wrapper
+										// get Blurb objects from Parse
+										$http.get(pUrl + '/classes/Blurb/' + quoteStream.quotes[ii]['blurbs'][j]['objectId']).success(function(data) {
+											// popular Blurb objects to data
+											quoteStream.quotes[ii][jj] = data;
+									})
+								}(j)
+								}
+							}
+							)
+					}(i)
+				}
 
-					}
-				});
-			}
-
-		},
-		error: function(object, error) {
-			// the object was not retrieved successfully
-			// error is a Parse.Error with an error code and message
-		}
-	});
-
-
+			});
 
 
-	app.controller('QuoteStreamController', function() {
 
 
-	});
+	} ]);
 })();
