@@ -18,7 +18,9 @@
   <div class="container" id="page-wrap">
     <div class="row">
       <div class="page-header">
+      	<!-- TODO: Dynamic name of room -->
         <h1>Whale-Cum Black Party</h1>
+        <!-- <h1>{{qs.name}}</h1> -->
       </div>
     </div>
     
@@ -26,11 +28,9 @@
       <!-- Left hand side -->
       <div class="col-md-8">
       	<div class="quote" ng-repeat="quote in qs.quotes">
-      		<blockquote ng-class-even="'blockquote-reverse'" ng-repeat="blurb in quote.blurbs">
-	      		<div class="blurb" >
+      		<blockquote class="blurb" ng-class-even="'blockquote-reverse'" ng-repeat="blurb in quote.blurbs">
 	        			<p class="blurb-text lead">{{blurb['blurb']}}</p>
-	        			<footer>{{blurb['misattributedTo']}}</footer>
-	        	</div>
+	        			<footer>{{blurb['attributed']}}</footer>
         	</blockquote>
         	<hr>
         </div>
@@ -39,23 +39,21 @@
       <!-- Right hand side -->
       <div class="col-md-4">
         <div id="sidebar">
-          <form role="form">
-
+          <form role="form" name="quoteForm" ng-controller="QuoteSubmitController as qsc" ng-submit="qsc.addQuote()">
             <div class="form-group">
               <div>
-
-                <input type="text" class="form-control" id="blurbInput" placeholder="Blurb">
+                <input ng-model="qsc.quote.blurbs[0]['blurb']" type="text" class="form-control" id="blurbInput" placeholder="Blurb">
               </div>
             </div>
 
             <div class="form-group">
               <div>
-                <input type="text" class="form-control" id="misattribInput" placeholder="Misattributed To">
+                <input ng-model="qsc.quote.blurbs[0]['attributed']" type="text" class="form-control" id="misattribInput" placeholder="Misattributed To">
               </div>
             </div>
 
             <div class="f">
-            <button type="sbmit" class="btn btn-lg btn-block">Submit</button>
+            	<button type="submit" class="btn btn-lg btn-block">Submit</button>
             </div>
 
           </div>
@@ -72,6 +70,8 @@
   <script src="js/party.js"></script>
   <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.3.0.min.js"></script>
   <script src="js/angular.min.js"></script>
+
+  <script src="js/angular-route.min.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
