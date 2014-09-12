@@ -1,7 +1,7 @@
 (function() {
 	var foo = "";
 
-	var app = angular.module('quotesApp', ['ngRoute', 'ngResource']);
+	var app = angular.module('quotesApp', []);
 
 	Parse.initialize("i0Js9aOJTnuUygn0yQLZyy4L4EWbacRmMoqu2IXC", "96l2LO6K6wwwh6lzWkKIMA5nQeb4h0aiRis2BhwH");
 
