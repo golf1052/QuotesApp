@@ -1,5 +1,5 @@
 // IT AINT A PARTY IN HERE CAUSE EVERYTHING IS BROKEN AND FUCKED
-
+var addedFormCount = 1;
 function addQuoteForm(x) {
   var originalBlurbBox = document.getElementById(x);
 
@@ -29,6 +29,7 @@ function addQuoteForm(x) {
   newBlurbBox.setAttribute("placeholder", "Blurb");
   newBlurbBox.setAttribute("id", makeid());
   newBlurbBox.setAttribute("onfocusout", "addQuoteForm(this.id)");
+  newBlurbBox.setAttribute("ng-model", "dsc.quote.blurbs[" + addedFormCount + "]");
   newBlurbDiv.appendChild(newBlurbBox);
 
   // and insert it before the submit button
@@ -41,17 +42,18 @@ function addQuoteForm(x) {
   newMisattribBox.setAttribute("type", "text");
   newMisattribBox.setAttribute("class", "form-control");
   newMisattribBox.setAttribute("placeholder", "Misattributed To");
+  newMisattribBox.setAttribute("ng-model", "dsc.quote.attributed[" + addedFormCount + "]");
   var misattribBoxId = makeid();
   newMisattribBox.setAttribute("id", misattribBoxId);
   newMisattribDiv.appendChild(newMisattribBox);
 
   // and insert it before the submit button
   quotesForm.insertBefore(newMisattribDiv, submitButton);
+
+  //Increment the counter for the boxes added
+  addedFormCount += 1;
 }
 
-function checkAdd() {
-
-}
 
 // wow such found on stackoverflow
 // http://stackoverflow.com/questions/1349404/generate-a-string-of-5-random-characters-in-javascript
@@ -64,3 +66,31 @@ function makeid() {
 
     return text;
 }
+
+
+// // Will be called whenever the window resizes
+// $(window).resize(function() {
+//   reorderTheSideBar();
+// });
+//
+// function reorderTheSideBar() {
+//   var tabletSize = 960;
+//   var documentWidth = $('body').innerWidth();
+//   if (documentWidth <= tabletSize) {
+//     // If the window is bigger than the tablet size
+//     // Move the entire sidebar above the quotes scrolling thing
+//     var $leftHandSide = $('.col-md-8');
+//     var $rightHandSide = $('.col-md-4');
+//
+//     $rightHandSide.detach(); // Detach it
+//     // Add it back inserted before the leftHandSide
+//     $rightHandSide.insertBefore($leftHandSide);
+//     $rightHandSide.removeClass('col-md-4').addClass('col-md-8');
+//
+//   } else if (documentWidth > tabletSize) {
+//     // Otherwise check if they're in the wrong places..
+//     // and if the screen is too big.
+//     // If so, fucking change them.
+//
+//   }
+// }
