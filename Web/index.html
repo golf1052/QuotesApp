@@ -25,18 +25,15 @@
     <div class="row">
       <!-- Left hand side -->
       <div class="col-md-8">
-        <p>{{qs.room}}</p>
-
-<p>In ultrices leo a mauris pulvinar, quis consequat nisi ultricies. Maecenas ligula lectus, varius non dapibus vitae, facilisis at nunc. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum dui ex, vestibulum in felis ut, lobortis feugiat lectus. Suspendisse varius quam ut erat fermentum, in suscipit diam dapibus. Nulla ullamcorper lobortis arcu ut tincidunt. Fusce at accumsan ex. Vestibulum sed cursus mauris. Etiam euismod mollis tellus sit amet lobortis.</p>
-
-<p>
-Pellentesque maximus nisl lorem, varius sagittis risus dapibus ac. Pellentesque non velit non magna congue feugiat. Aliquam eros libero, commodo ut aliquet vitae, faucibus a metus. Vivamus volutpat suscipit nisi sit amet viverra. Donec lobortis risus augue, non congue lectus varius sit amet. Sed ac sem risus. Donec vestibulum finibus ante vitae tempor. Cras fringilla nunc sem, id porta quam condimentum a. Integer elementum massa a hendrerit vestibulum. Nulla quis suscipit urna. Cras nec rutrum purus. Integer non nulla et diam placerat lobortis. Fusce at tincidunt lacus.</p>
-
-<p>
-Sed gravida dapibus dictum. Duis porttitor dictum ex vitae bibendum. Nunc condimentum lorem arcu, sit amet molestie est mattis a. Cras vel porta ipsum, at vestibulum mi. Integer ut massa vitae elit elementum faucibus. Maecenas lacinia eget ante et pulvinar. Morbi maximus dapibus enim, ac vestibulum leo sodales eget. Vivamus at ante vitae risus elementum dictum. Etiam ut nulla sagittis, vehicula lorem in, dignissim leo. Phasellus quis elit sed sem suscipit ultricies a eget augue. Donec condimentum libero vitae purus lacinia, et sollicitudin massa ultricies. Nunc cursus orci eget nisl congue semper. Etiam non aliquam est.</p>
-
-<p>
-Suspendisse sollicitudin, lorem id commodo scelerisque, felis ligula tristique turpis, vel vehicula leo sapien non justo. Integer ultricies, augue nec facilisis efficitur, nibh nisi suscipit leo, et ullamcorper velit ex a ex. Sed sed ante et elit euismod sodales et in ipsum. Nunc dictum massa justo, eu posuere mi dapibus quis. Nunc eleifend libero id bibendum auctor. Donec vitae sodales nunc. Sed mi velit, condimentum ac sapien ac, mollis consequat elit. Curabitur pellentesque interdum tortor, sed auctor sem sagittis at. Morbi ut erat sit amet lorem aliquam eleifend. Cras eleifend nunc a urna vehicula luctus. Morbi sit amet est et ligula molestie euismod. Morbi facilisis vestibulum condimentum. Nulla facilisi. Sed eget mi purus.</p>
+      	<div class="quote" ng-repeat="quote in qs.quotes">
+      		<blockquote ng-class-even="'blockquote-reverse'" ng-repeat="blurb in quote.blurbs">
+	      		<div class="blurb" >
+	        			<p class="blurb-text lead">{{blurb['blurb']}}</p>
+	        			<footer>{{blurb['misattributedTo']}}</footer>
+	        	</div>
+        	</blockquote>
+        	<hr>
+        </div>
       </div>
 
       <!-- Right hand side -->
