@@ -1,8 +1,5 @@
-$('#my-affix').affix({
-    offset: {
-      top: 100
-    , bottom: function () {
-        return (this.bottom = $('.footer').outerHeight(true))
-      }
-    }
-  })
+// IT AINT A PARTY IN HERE CAUSE EVERYTHING IS BROKEN AND FUCKED
+
+$(document).ready(function() {
+  
+});

@@ -22,7 +22,7 @@
     <![endif]-->
 </head>
 <body>
-  <div class="container">
+  <div class="container" id="page-wrap">
     <div class="page-header">
       <h1>Whale-Cum Black Party</h1>
     </div>
@@ -34,17 +34,20 @@
       </div>
 
       <!-- Right hand side -->
-      <div class="col-md-4 sidebar">
-        <form role="form">
-          <input type="text" class="form-control" id="blurbInput" placeholder="Blurb">
-          <div/>
-          <input type="text" class="form-control" id="misattribInput" placeholder="Misattributed To">
-          <button type="button" class="btn btn-lg btn-block">Submit</button>
-        </form>
+      <div class="col-md-4" id="page-wrap">
+        <div id="sidebar">
+          <form role="form">
+            <input type="text" class="form-control" id="blurbInput" placeholder="Blurb">
+            <div/>
+            <input type="text" class="form-control" id="misattribInput" placeholder="Misattributed To">
+            <button type="button" class="btn btn-lg btn-block">Submit</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
   <script src="js/angular.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/party.js"></script>
