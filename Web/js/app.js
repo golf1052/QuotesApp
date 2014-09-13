@@ -86,7 +86,8 @@
 										console.log(this.room);
 					$http.put(pUrl + 'classes/Room/' + this.room['objectId'], this.room).success(function(data){
 						this.reponse = data;
-						$window.location.href="file:///C:/Users/Nat/Documents/GitHub/QuotesApp/Web/index.html"
+						//$window.location.href="file:///C:/Users/Nat/Documents/GitHub/QuotesApp/Web/index.html"
+						$window.location.reload();
 					});
 				});
 
