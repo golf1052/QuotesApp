@@ -1,11 +1,15 @@
 html,body {
   height: 100%;
 }
+
 .btn {
   background-color: #ffc107;
+  font-weight: 100;
 }
 
-
+.btn.active, .btn:active {
+  background-color: #ffa000;
+}
 
 @media (min-width: 768px) {
   #page-wrap {
