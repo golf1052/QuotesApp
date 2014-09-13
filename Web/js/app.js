@@ -28,7 +28,7 @@
 					!function outer(ii){ // wrapper because for loop
 						// get Quote objects from Parse
 						$http.get(pUrl + 'classes/Quote/' + quoteStream.quotes[i]['objectId']).success(function(data) {
-								quoteStream.quotes[ii] = data;
+								quoteStream.quotes[quoteStream.quotes.length - 1 - ii] = data;
 							});
 					}(i)
 				}
