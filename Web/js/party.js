@@ -22,36 +22,43 @@ function addQuoteForm(x) {
 
   // create new blurb box
   var newBlurbDiv = document.createElement("div");
-  newBlurbDiv.setAttribute("class", "form-group");
   var newBlurbBox = document.createElement("input");
+
+  newBlurbDiv.setAttribute("class", "form-group");
   newBlurbBox.setAttribute("type", "text");
   newBlurbBox.setAttribute("class", "form-control");
   newBlurbBox.setAttribute("placeholder", "Blurb");
   newBlurbBox.setAttribute("id", makeid());
   newBlurbBox.setAttribute("onfocusout", "addQuoteForm(this.id)");
   newBlurbBox.setAttribute("ng-model", "qsc.quote.blurbs[" + addedFormCount + "]['blurb']");
+  
   newBlurbDiv.appendChild(newBlurbBox);
 
-  // and insert it before the submit button
-  quotesForm.insertBefore(newBlurbDiv, submitButton);
-
   // create new misattributed box
+  var misattribBoxId = makeid();
+  
   var newMisattribDiv = document.createElement("div");
-  newMisattribDiv.setAttribute("class", "form-group");
   var newMisattribBox = document.createElement("input");
+  
+  newMisattribDiv.setAttribute("class", "form-group");
   newMisattribBox.setAttribute("type", "text");
   newMisattribBox.setAttribute("class", "form-control");
   newMisattribBox.setAttribute("placeholder", "Misattributed To");
   newMisattribBox.setAttribute("ng-model", "qsc.quote.blurbs[" + addedFormCount + "]['attributed']");
-  var misattribBoxId = makeid();
   newMisattribBox.setAttribute("id", misattribBoxId);
+  
   newMisattribDiv.appendChild(newMisattribBox);
 
-  // and insert it before the submit button
+  // and insert new blurb div before the submit button
+  quotesForm.insertBefore(newBlurbDiv, submitButton);
+
+  // and insert new misattrib div before the submit button
   quotesForm.insertBefore(newMisattribDiv, submitButton);
 
   // Here set the height of the entire sidebar to the sum of the height of
   // all the groups of input fields.
+  // I hate Sanders for using vanilla js instead of jQuery
+  resizeTheInputFields();
 
   //Increment the counter for the boxes added
   addedFormCount += 1;
@@ -77,7 +84,8 @@ $(window).resize(function() {
 });
 $(document).ready(function() {
   reorderTheSideBar();
-})
+});
+
 function reorderTheSideBar() {
   var tabletSize = 990;
   var documentWidth = $('body').innerWidth();
@@ -94,6 +102,7 @@ function reorderTheSideBar() {
     $rightHandSide.insertBefore($leftHandSide);
     $rightHandSide.removeClass('col-md-4').addClass('col-md-8');
     $rightHandSide.css("height", $sidebarElement.innerHeight() + "px");
+    // Set the height of the #sidebar parent to the #sidebar's width
     $leftHandSide.css("margin-top", "20px");
     $rightHandSide.css('width', $leftHandSide.innerWidth());
 
@@ -111,5 +120,13 @@ function reorderTheSideBar() {
     // The height should be whatever the height of the sum of all of the inputs
     // The width should be handled by the col-md-4 class, fuck.
     $submitQuoteSection.css('width', "");
+    $submitQuoteSection.css('height', "");
   }
+}
+
+function resizeTheInputFields() {
+  var $sidebarElement = $('#sidebar');
+  var $submitQuoteSection = $('#submitQuoteSection');
+
+  $submitQuoteSection.css("height", $sidebarElement.innerHeight());
 }
