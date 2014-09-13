@@ -29,7 +29,7 @@ function addQuoteForm(x) {
   newBlurbBox.setAttribute("placeholder", "Blurb");
   newBlurbBox.setAttribute("id", makeid());
   newBlurbBox.setAttribute("onfocusout", "addQuoteForm(this.id)");
-  newBlurbBox.setAttribute("ng-model", "dsc.quote.blurbs[" + addedFormCount + "]");
+  newBlurbBox.setAttribute("ng-model", "qsc.quote.blurbs[" + addedFormCount + "]['blurb']");
   newBlurbDiv.appendChild(newBlurbBox);
 
   // and insert it before the submit button
@@ -42,7 +42,7 @@ function addQuoteForm(x) {
   newMisattribBox.setAttribute("type", "text");
   newMisattribBox.setAttribute("class", "form-control");
   newMisattribBox.setAttribute("placeholder", "Misattributed To");
-  newMisattribBox.setAttribute("ng-model", "dsc.quote.attributed[" + addedFormCount + "]");
+  newMisattribBox.setAttribute("ng-model", "qsc.quote.blurbs[" + addedFormCount + "]['attributed']");
   var misattribBoxId = makeid();
   newMisattribBox.setAttribute("id", misattribBoxId);
   newMisattribDiv.appendChild(newMisattribBox);
