@@ -72,9 +72,11 @@ function makeid() {
 $(window).resize(function() {
   reorderTheSideBar();
 });
-
+$(document).ready(function() {
+  reorderTheSideBar();
+})
 function reorderTheSideBar() {
-  var tabletSize = 960;
+  var tabletSize = 990;
   var documentWidth = $('body').innerWidth();
   if (documentWidth <= tabletSize) {
     // If the window is bigger than the tablet size
@@ -90,6 +92,7 @@ function reorderTheSideBar() {
     $rightHandSide.removeClass('col-md-4').addClass('col-md-8');
     $rightHandSide.css("height", $sidebarElement.innerHeight() + "px");
     $leftHandSide.css("margin-top", "20px");
+    $rightHandSide.css('width', $leftHandSide.innerWidth());
 
   } else if (documentWidth > tabletSize) {
     // Otherwise check if they're in the wrong places..
@@ -103,7 +106,8 @@ function reorderTheSideBar() {
     $submitQuoteSection.insertAfter($quotesListSection);
     $submitQuoteSection.removeClass("col-md-8").addClass("col-md-4");
     $submitQuoteSection.css("height", "auto");
-    $submitQuoteSection.css("margin-top", "0");
-    $quotesListSection.css("margin-top", "0");
+    $submitQuoteSection.css('width', "auto");
+    // $submitQuoteSection.css("margin-top", "0");
+    // $quotesListSection.css("margin-top", "0");
   }
 }
