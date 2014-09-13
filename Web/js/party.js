@@ -25,6 +25,7 @@ function addQuoteForm(x) {
   var newBlurbBox = document.createElement("input");
 
   newBlurbDiv.setAttribute("class", "form-group");
+
   newBlurbBox.setAttribute("type", "text");
   newBlurbBox.setAttribute("class", "form-control");
   newBlurbBox.setAttribute("placeholder", "Blurb");
@@ -55,8 +56,6 @@ function addQuoteForm(x) {
   // and insert new misattrib div before the submit button
   quotesForm.insertBefore(newMisattribDiv, submitButton);
 
-  // Here set the height of the entire sidebar to the sum of the height of
-  // all the groups of input fields.
   // I hate Sanders for using vanilla js instead of jQuery
   resizeTheInputFields();
 
@@ -77,48 +76,43 @@ function makeid() {
     return text;
 }
 
+//Will be called on page load
+$(document).ready(function() {
+  reorderTheSideBar();
+});
 
 // Will be called whenever the window resizes
 $(window).resize(function() {
-  reorderTheSideBar();
-});
-$(document).ready(function() {
   reorderTheSideBar();
 });
 
 function reorderTheSideBar() {
   var tabletSize = 990;
   var documentWidth = $('body').innerWidth();
+  var $sidebarElement = $("#sidebar");
+
+  var $quotesListSection = $('#quotesListSection');
+  var $submitQuoteSection = $('#submitQuoteSection');
   if (documentWidth <= tabletSize) {
-    // If the window is bigger than the tablet size
-    // Move the entire sidebar above the quotes scrolling thing
-    var $leftHandSide = $('.col-md-8');
-    var $rightHandSide = $('.col-md-4');
+    // Aesthetic, keeping the two sections seperate when vertical
+    $quotesListSection.css("margin-top", "20px");
+    
+    $submitQuoteSection.detach(); // Detach it
 
-    $sidebarElement = $('#sidebar');
-    $rightHandSide.detach(); // Detach it
+    // Add it back inserted before the quotesListSection
+    $submitQuoteSection.insertBefore($quotesListSection);
 
-    // Add it back inserted before the leftHandSide
-    $rightHandSide.insertBefore($leftHandSide);
-    $rightHandSide.removeClass('col-md-4').addClass('col-md-8');
-    $rightHandSide.css("height", $sidebarElement.innerHeight() + "px");
-    // Set the height of the #sidebar parent to the #sidebar's width
-    $leftHandSide.css("margin-top", "20px");
-    $rightHandSide.css('width', $leftHandSide.innerWidth());
-
+    // Make it take up the entire row
+    $submitQuoteSection.removeClass('col-md-4').addClass('col-md-8');
+    $submitQuoteSection.css("height", $sidebarElement.innerHeight() + "px");
+    $submitQuoteSection.css('width', $quotesListSection.innerWidth());  
   } else if (documentWidth > tabletSize) {
-    // Otherwise check if they're in the wrong places..
-    // and if the screen is too big.
-    // If so, fucking change them.
-    var $submitQuoteSection = $("#submitQuoteSection");
-    $sidebarElement = $("#sidebar");
-    $submitQuoteSection.detach();
-
-    var $quotesListSection = $("#quotesListSection");
+    $submitQuoteSection.detach(); // Detach it
+    
     $submitQuoteSection.insertAfter($quotesListSection);
     $submitQuoteSection.removeClass("col-md-8").addClass("col-md-4");
-    // The height should be whatever the height of the sum of all of the inputs
-    // The width should be handled by the col-md-4 class, fuck.
+    
+    // Clear these values and let bootstrap do it's job
     $submitQuoteSection.css('width', "");
     $submitQuoteSection.css('height', "");
   }
