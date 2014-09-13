@@ -39,11 +39,11 @@
         <div id="sidebar">
           <form role="form" id="addQuotesForm" ng-controller="QuoteSubmitController as qsc" ng-submit="qsc.addQuote()">
             <div class="form-group">
-              <input ng-model="qsc.quote.blurbs[0].blurb" type="text" class="form-control" id="firstBlurbInput" placeholder="Whale motherfucker! Do you speak it?">
+              <input ng-model="qsc.quote.blurbs[0].blurb" type="text" class="form-control" id="firstBlurbInput" placeholder="Whale motherfucker! Do you speak it?" required>
             </div>
 
             <div class="form-group">
-              <input ng-model="qsc.quote.blurbs[0].attributed" type="text" class="form-control" id="firstMisattribInput" placeholder="Samuel L. Jackson">
+              <input ng-model="qsc.quote.blurbs[0].attributed" type="text" class="form-control" id="firstMisattribInput" placeholder="Samuel L. Jackson" required>
             </div>
 
             <div id="submitButtonDiv">
