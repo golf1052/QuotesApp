@@ -1,10 +1,10 @@
 (function() {
 	var app = angular.module('quotesApp', ['ngRoute']);
-
-	var prodRoom = 'RN7ATsC59V';
+	var prodRoom = 'RN7ATsC59V'; // Party Room
+	var prodUser = 'wwQKl03DKN'; // Party User
 
 	app.controller('QuoteStreamController', ['$http', function($http) {
-			// initialize data structures for room + quote data
+			// initialize data structures for Room and Quote data
 			var quoteStream = this;
 			quoteStream.room = {};
 			quoteStream.quotes = []
@@ -21,9 +21,7 @@
 			//$http.get(pUrl + 'classes/Room/SwU8fgU2iE').success(function(data){ // for testing w/ more quotes
 				quoteStream.room = data;
 				quoteStream.quotes = quoteStream.room['quotes'];
-				//console.log(quoteStream);
 				// go through the quote IDs and get their objects
-				// TODO: QUOTE AGE ORDERING, I THINK ITS WRONG ATM
 				for (var i = 0; i < quoteStream.quotes.length; i++) {
 					!function outer(ii){ // wrapper because for loop
 						// get Quote objects from Parse
@@ -41,7 +39,7 @@
 	} ]);
 
 	app.controller('QuoteSubmitController', ['$scope', '$route', '$window', '$http', function($scope, $route, $window, $http) {
-		// var foo = "";
+		// initialize quote data with appropriate Room and User
 		this.quote = {
 			"room" : { "__type"    : "Pointer",
 				"className" : "Room",
@@ -49,7 +47,7 @@
 			},
 			"submitter" : { "__type"    : "Pointer",
 				"className" : "_User",
-				"objectId"  : "wwQKl03DKN",
+				"objectId"  : prodUser,
 			},
 			"blurbs" : [
 				// { 'blurb' : 'foo', 'attributed' : 'bar' }
@@ -70,10 +68,6 @@
 			$http.post(pUrl + 'classes/Quote', this.quote).success(function(data){
 				this.quote = data;
 				var quoteVar = this.quote;
-				console.log("this.quote")
-				console.log(this.quote);
-								console.log("this.quote['objectId']")
-				console.log(this.quote['objectId']);
 
 				$http.get(pUrl + 'classes/Room/' + prodRoom).success(function(data){
 					this.room = data;
@@ -86,12 +80,11 @@
 										console.log(this.room);
 					$http.put(pUrl + 'classes/Room/' + this.room['objectId'], this.room).success(function(data){
 						this.reponse = data;
-						//$window.location.href="file:///C:/Users/Nat/Documents/GitHub/QuotesApp/Web/index.html"
 						$window.location.reload();
 					});
 				});
 
-				// then reset quote object?
+				// then reset Quote object to defaults
 				this.quote = {
 						"room" : { "__type"    : "Pointer",
 							"className" : "Room",
@@ -99,7 +92,7 @@
 						},
 						"submitter" : { "__type"    : "Pointer",
 							"className" : "_User",
-							"objectId"  : "wwQKl03DKN",
+							"objectId"  : prodUser,
 						},
 						"blurbs" : [
 							// { 'blurb' : 'foo', 'attributed' : 'bar' }
