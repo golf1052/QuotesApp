@@ -31,7 +31,7 @@ function addQuoteForm(x) {
   newBlurbBox.setAttribute("placeholder", "Blurb");
   newBlurbBox.setAttribute("id", makeid());
   newBlurbBox.setAttribute("onfocusout", "addQuoteForm(this.id)");
-  newBlurbBox.setAttribute("ng-model", "qsc.quote.blurbs[" + addedFormCount + "]['blurb']");
+  newBlurbBox.setAttribute("ng-model", "qsc.quote.blurbs[" + addedFormCount + "].blurb");
   
   newBlurbDiv.appendChild(newBlurbBox);
 
@@ -45,7 +45,7 @@ function addQuoteForm(x) {
   newMisattribBox.setAttribute("type", "text");
   newMisattribBox.setAttribute("class", "form-control");
   newMisattribBox.setAttribute("placeholder", "Misattributed To");
-  newMisattribBox.setAttribute("ng-model", "qsc.quote.blurbs[" + addedFormCount + "]['attributed']");
+  newMisattribBox.setAttribute("ng-model", "qsc.quote.blurbs[" + addedFormCount + "].attributed");
   newMisattribBox.setAttribute("id", misattribBoxId);
   
   newMisattribDiv.appendChild(newMisattribBox);
