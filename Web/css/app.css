@@ -1,14 +1,21 @@
+html,body {
+  height: 100%;
+}
 .btn {
   background-color: #ffc107;
 }
 
-#sidebar {
-  position: fixed;
-  width: inherit;
-}
 
-#page-wrap {
-  position: relative;
+
+@media (min-width: 768px) {
+  #page-wrap {
+    position: relative;
+  }
+
+  #sidebar {
+    position: fixed;
+    width: inherit;
+  }
 }
 
 .quote {
@@ -24,5 +31,5 @@
 }
 
 .blurb-attributed {
-	
+
 }

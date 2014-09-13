@@ -26,7 +26,7 @@
 
     <div class="row">
       <!-- Left hand side -->
-      <div class="col-md-8">
+      <div class="col-md-8" id="quotesListSection">
       	<div class="quote" ng-repeat="quote in qs.quotes">
       		<blockquote class="blurb" ng-class-even="'blockquote-reverse'" ng-repeat="blurb in quote.blurbs">
 	        			<p class="blurb-text lead">{{blurb['blurb']}}</p>
@@ -37,7 +37,7 @@
       </div>
 
       <!-- Right hand side -->
-      <div class="col-md-4">
+      <div class="col-md-4" id="submitQuoteSection">
         <div id="sidebar">
           <form role="form" id="addQuotesForm" ng-controller="QuoteSubmitController as qsc" ng-submit="qsc.addQuote()">
             <div class="form-group">

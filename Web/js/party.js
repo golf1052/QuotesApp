@@ -68,29 +68,42 @@ function makeid() {
 }
 
 
-// // Will be called whenever the window resizes
-// $(window).resize(function() {
-//   reorderTheSideBar();
-// });
-//
-// function reorderTheSideBar() {
-//   var tabletSize = 960;
-//   var documentWidth = $('body').innerWidth();
-//   if (documentWidth <= tabletSize) {
-//     // If the window is bigger than the tablet size
-//     // Move the entire sidebar above the quotes scrolling thing
-//     var $leftHandSide = $('.col-md-8');
-//     var $rightHandSide = $('.col-md-4');
-//
-//     $rightHandSide.detach(); // Detach it
-//     // Add it back inserted before the leftHandSide
-//     $rightHandSide.insertBefore($leftHandSide);
-//     $rightHandSide.removeClass('col-md-4').addClass('col-md-8');
-//
-//   } else if (documentWidth > tabletSize) {
-//     // Otherwise check if they're in the wrong places..
-//     // and if the screen is too big.
-//     // If so, fucking change them.
-//
-//   }
-// }
+// Will be called whenever the window resizes
+$(window).resize(function() {
+  reorderTheSideBar();
+});
+
+function reorderTheSideBar() {
+  var tabletSize = 960;
+  var documentWidth = $('body').innerWidth();
+  if (documentWidth <= tabletSize) {
+    // If the window is bigger than the tablet size
+    // Move the entire sidebar above the quotes scrolling thing
+    var $leftHandSide = $('.col-md-8');
+    var $rightHandSide = $('.col-md-4');
+
+    $sidebarElement = $('#sidebar');
+    $rightHandSide.detach(); // Detach it
+
+    // Add it back inserted before the leftHandSide
+    $rightHandSide.insertBefore($leftHandSide);
+    $rightHandSide.removeClass('col-md-4').addClass('col-md-8');
+    $rightHandSide.css("height", $sidebarElement.innerHeight() + "px");
+    $leftHandSide.css("margin-top", "20px");
+
+  } else if (documentWidth > tabletSize) {
+    // Otherwise check if they're in the wrong places..
+    // and if the screen is too big.
+    // If so, fucking change them.
+    var $submitQuoteSection = $("#submitQuoteSection");
+    $sidebarElement = $("#sidebar");
+    $submitQuoteSection.detach();
+
+    var $quotesListSection = $("#quotesListSection");
+    $submitQuoteSection.insertAfter($quotesListSection);
+    $submitQuoteSection.removeClass("col-md-8").addClass("col-md-4");
+    $submitQuoteSection.css("height", "auto");
+    $submitQuoteSection.css("margin-top", "0");
+    $quotesListSection.css("margin-top", "0");
+  }
+}
