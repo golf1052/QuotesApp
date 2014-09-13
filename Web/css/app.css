@@ -41,3 +41,7 @@ html,body {
 blockquote {
 	border-left-color: #6889ff;
 }
+
+#addQuotesForm h3 {
+  text-align: center;
+}
