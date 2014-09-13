@@ -50,6 +50,9 @@ function addQuoteForm(x) {
   // and insert it before the submit button
   quotesForm.insertBefore(newMisattribDiv, submitButton);
 
+  // Here set the height of the entire sidebar to the sum of the height of
+  // all the groups of input fields.
+
   //Increment the counter for the boxes added
   addedFormCount += 1;
 }
@@ -105,9 +108,8 @@ function reorderTheSideBar() {
     var $quotesListSection = $("#quotesListSection");
     $submitQuoteSection.insertAfter($quotesListSection);
     $submitQuoteSection.removeClass("col-md-8").addClass("col-md-4");
-    $submitQuoteSection.css("height", "auto");
-    $submitQuoteSection.css('width', "auto");
-    // $submitQuoteSection.css("margin-top", "0");
-    // $quotesListSection.css("margin-top", "0");
+    // The height should be whatever the height of the sum of all of the inputs
+    // The width should be handled by the col-md-4 class, fuck.
+    $submitQuoteSection.css('width', "");
   }
 }
